@@ -1,3 +1,5 @@
+'use strict';
+
 let	money = +prompt('Ваш месячный доход?', 5000), 
     income = " без дополнительного дохода ", 
     addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'Кварплата, Садик'), 
@@ -20,19 +22,19 @@ let	money = +prompt('Ваш месячный доход?', 5000),
         return a + b;
     };
 
-    getAccumulatedMonth = function(a, b){
+    let getAccumulatedMonth = function(a, b){
         return (a - getExpensesMonth(amount1, amount2));
     };
 
-    let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth());
+    let accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth(amount1, amount2));
 
-    getTargetMonth = function(a, b){
+    let getTargetMonth = function(a, b){
         return a / b;
     };
 
     let budgetDay = accumulatedMonth / 30;
 
-    getStatusIncome = function(){
+    let getStatusIncome = function(){
         if (budgetDay >= 1200){
             return('У вас высокий уровень дохода');
         }
@@ -58,5 +60,4 @@ let	money = +prompt('Ваш месячный доход?', 5000),
     console.log("Накопления за месяц:" + accumulatedMonth);
     console.log('Месяцев до цели: ' + Math.floor(getTargetMonth(mission, accumulatedMonth)));
     console.log('Дневной бюджет: ' + budgetDay);
-
     console.log(getStatusIncome());
