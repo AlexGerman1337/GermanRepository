@@ -15,7 +15,7 @@ let	money,
     let start = function() {
         do{
             money = prompt('Ваш месячный доход?');
-        } while (isNumber((money)));
+        } while (!isNumber((money)));
     };
     
 
@@ -45,10 +45,10 @@ let	money,
 
     let accumulatedMonth = getAccumulatedMonth(money, expensesAmount);
 
-    let getTargetMonth = function(a, b){
-        return a / b;
+    let getTargetMonth = function(mission, accumulatedMonth){
+        return mission / accumulatedMonth;
     };
-
+    
     let budgetDay = accumulatedMonth / 30;
 
     let getStatusIncome = function(){
@@ -67,11 +67,12 @@ let	money,
         };
 
 
-        if(getTargetMonth < 0){
+        if(getTargetMonth(mission, accumulatedMonth) <= 0 ){
             console.log('Цель не будет достигнута')
         }else{
-            console.log("Цель будет достигнута за " + parseFloat(getTargetMonth) + " месяцев ");
+            console.log("Цель будет достигнута за " + parseInt(getTargetMonth(mission, accumulatedMonth)) + " месяцев ");
         };
+        
 
 
     console.log("income:", income);
