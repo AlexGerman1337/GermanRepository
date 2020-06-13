@@ -15,9 +15,9 @@ let	money,
     let start = function() {
         do{
             money = prompt('Ваш месячный доход?');
-        } while (isNumber(parseFloat(money)));
+        } while (isNumber((money)));
     };
-    debugger
+    
 
     start();
 
