@@ -11,7 +11,7 @@ let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n)
 };
 let isString = function(n){
-    return String(n) && n === null && isString.trim();
+    return String(n) && n === null && n.trim();
 };
 start();
 
@@ -94,7 +94,7 @@ let appData = {
         console.log('Дневной бюджет: ' + appData.budgetDay);
     },
 
-    getTargetMonth: function(mission, budgetMonth){
+    getTargetMonth: function(){
         return appData.mission / appData.budgetMonth;
     },
 
