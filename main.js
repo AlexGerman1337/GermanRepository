@@ -29,7 +29,9 @@ book03.after(book04);
 
 
 
-book03a.textContent = 'Книга 3. this и ПроТопипы Объектов'
+book03a.textContent = 'Книга 3. this и ПроТопипы Объектов';
+book03a.style.color = 'darkkhaki';
+
 
 adv.remove();
 
